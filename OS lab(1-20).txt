@@ -1,0 +1,83 @@
+echo "Input values of a & b:"
+read a
+read b
+c=$(( $a + $b ))
+echo "The sum is: $c"
+////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////
+echo "enter number:"
+read x
+y=$((  $x % 2 ))
+if [ $y -eq 0 ]
+then
+echo "Number is even"
+else
+echo "number is odd"
+fi
+///////////////////////////////////////////////////////////
+
+echo "Enter Num1"
+read num1
+echo "Enter Num2"
+read num2
+echo "Enter Num3"
+read num3
+
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+    echo $num1
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+    echo $num2
+else
+    echo $num3
+fi
+/////////////////////////////////////////////////////////////////////////////////////
+echo "enter basic salary"
+read bs
+hra='echo $bs \* 10 / 100 | bc'
+ta='echo $bs \* 15 / 100 | bc'
+da='echo $bs \* 2 / 100 | bc'
+tax='echo $bs \* 5 / 100 | bc'
+pf='echo $bs \* 10 / 100 | bc'
+add='echo $hra + $ta + $da | bc'
+ded='echo $tax + $pf | bc'
+netsal='echo $bs + $add - $ded | bc'
+echo
+echo net salary is $netsal
+////////////////////////////////////////////////////////////////////////////////////////////////////
+echo "enter the basic salary:"
+read bsal
+if [ $bsal -lt 1500 ]
+then
+gsal=$((bsal+((bsal/100)*10)+(bsal/100)*90))
+echo "The gross salary : $gsal"
+fi
+if [ $bsal -ge 1500 ]
+then
+gsal=$(((bsal+500)+(bsal/100)*98))
+echo "the gross salary : $gsal"
+fi
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+echo '\tEvaluation of Arithmetic expression' 
+echo ----------------------------------------------------- 
+echo Enter the a value 
+read a 
+echo  Enter the b value 
+read b 
+echo 1.Addition 
+echo 2.Subtraction 
+echo 3.Multiplication 
+echo 4.Division 
+echo 5.Modules 
+echo Enter your choice 
+read choice 
+case $choice in 
+        1)echo Addition       : $(expr $a + $b);; 
+        2)echo Suubtraction   : $(expr $a - $b);; 
+        3)echo Multiplication : $(expr $a \* $b);; 
+        4)echo Division       : $(expr $a / $b);; 
+        5)echo Modules        : $(expr $a % $b);; 
+        *)echo This is not a choice 
+esac 
